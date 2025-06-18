@@ -1,0 +1,96 @@
+pytest-packaging tool
+pytest framwork is easy to test small, readab;e tests and can scale to support complex functional testing for applications and libraries.
+
+pytest is a popular testing framework for Python that makes it easy to write simple and scalable test cases for your code. It is widely used in the Python community for unit testing, functional testing, and even API or integration testing.
+
+✅ Key Features of pytest:
+Simple syntax:
+
+You can write tests as simple functions using assert.
+
+Example:
+
+python
+Copy
+Edit
+def test_addition():
+    assert 2 + 3 == 5
+Auto-discovery:
+
+It automatically finds files starting with test_ or ending with _test.py and runs functions starting with test_.
+
+Detailed failure reports:
+
+When a test fails, pytest shows exactly what went wrong with detailed output.
+
+Fixtures:
+
+Reusable setup/teardown logic using @pytest.fixture.
+
+Great for preparing test data or configurations.
+
+Plugins:
+
+A large ecosystem of plugins, e.g., pytest-django, pytest-cov (for test coverage), pytest-mock.
+
+Parameterization:
+
+Run the same test with different inputs using @pytest.mark.parametrize.
+
+--------------
+
+# create in this folder,one file test_math.py
+
+%%file test_math.py
+import math
+def testadd():
+  assert 1+1 == 2
+def test_multiply():
+  assert 2*3 == 6
+def test_sin():
+  assert math.sin(0) == 0
+  
+  
+  ---
+  to run
+ 
+  !python -m pytest test_math.py
+--
+Test session starts (platform: linux, Python 3.11.13, pytest 8.3.5, pytest-sugar 1.0.0)
+rootdir: /content/tdd
+plugins: sugar-1.0.0, anyio-4.9.0, typeguard-4.4.3, langsmith-0.3.45
+collected 3 items                                                              
+
+ test_math.py ✓✓✓                                                100% ██████████
+
+Results (0.02s):
+       3 passed
+	   
+	   
+---
+for ex if we give wrong like 2 * 3 == 10 it will fail
+
+Test session starts (platform: linux, Python 3.11.13, pytest 8.3.5, pytest-sugar 1.0.0)
+rootdir: /content/tdd
+plugins: sugar-1.0.0, anyio-4.9.0, typeguard-4.4.3, langsmith-0.3.45
+collected 3 items                                                              
+
+ test_math.py ✓                                                   33% ███▍      
+
+―――――――――――――――――――――――――――――――― test_multiply ―――――――――――――――――――――――――――――――――
+
+    def test_multiply():
+>     assert 2*3 == 10
+E     assert (2 * 3) == 10
+
+test_math.py:5: AssertionError
+
+ test_math.py ⨯✓                                                 100% ██████████
+=========================== short test summary info ============================
+FAILED test_math.py::test_multiply - assert (2 * 3) == 10
+
+Results (0.09s):
+       2 passed
+       1 failed
+         - test_math.py:4 test_multiply
+Colab paid products - Cancel contracts here

@@ -1,0 +1,13 @@
+Data versioning control(DVC)
+
+why dvc? whats different from git?
+
+In order to push heavy files/larger files we use DVC
+GIT HAS SOME LIMITATIONS THATS WHY WE  USE DVC
+
+DVC IS GENERALLY USED TO TRACK MDOEL FILES,TRAINING DATASETS ,OUTPUT DATASETS
+
+
+to initialize dvc
+command:
+dvc init
